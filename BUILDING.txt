@@ -1,0 +1,40 @@
+Requirements:
+	- Conan
+	- CMake
+
+Build Process:
+
+These instructions assume that conan and cmake are installed, in the PATH and working.
+
+First of all add add the bincrafters package to conan.
+ $ conan remote add bincrafters "https://api.bintray.com/conan/bincrafters/public-conan"
+
+Then clone the git repository (Skip if already done, obviously)
+ $ git clone https://github.com/AquaFlyRat/corgi.git
+
+From a terminal navigate into the root directory of the project.
+ $ cd corgi
+
+Create a "build" directory.
+ $ mkdir build
+
+Navigate into that build directory
+ $ cd build
+
+Then use Conan to install the nessersary packages.
+ $ conan install ..
+
+Now generate the build files themselves with CMake
+ $ cmake -H../ -B.
+
+Now build & run the project, using whatever system CMake has generated.
+CMake can run the build for you by running
+ $ cmake --build .
+from the "build" directory.
+
+Otherwise you can just run 
+ $ make
+if using the Makefile generator, or Ninja or whatever.
+
+The binary will be in "build/bin"
+
