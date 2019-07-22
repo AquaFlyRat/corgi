@@ -15,26 +15,20 @@ Then clone the git repository (Skip if already done, obviously)
 From a terminal navigate into the root directory of the project.
  $ cd corgi
 
-Create a "build" directory.
- $ mkdir build
-
-Navigate into that build directory
- $ cd build
-
-Then use Conan to install the nessersary packages.
- $ conan install ..
-
-Now generate the build files themselves with CMake
- $ cmake -H../ -B.
+Generate the project files by invoking CMake, at the bear minimum by running
+ $ cmake -H. -Bbuild
 
 Now build & run the project, using whatever system CMake has generated.
 CMake can run the build for you by running
- $ cmake --build .
-from the "build" directory.
+ $ cmake --build build
 
 Otherwise you can just run 
  $ make
-if using the Makefile generator, or Ninja or whatever.
+from the build directory if using the Makefile generator, or follow
+the build system specific process.
 
-The binary will be in "build/bin"
+The binary will be (somewhere, depending on build system) in the "build/"
+folder.
+For Makefile like generators probably in "build/" and for VS probably in 
+"build/Debug" or "build/Release"
 
