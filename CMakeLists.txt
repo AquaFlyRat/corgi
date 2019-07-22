@@ -12,10 +12,21 @@ set (source
   src/corgi.cpp
 )
 
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 add_executable (${PROJECT_NAME} ${source})
 
-if (MINGW)
-	target_link_libraries(${PROJECT_NAME} mingw32)
+if(MINGW)
+  target_compile_options(${PROJECT_NAME} PRIVATE /W4 /WX)
+else()
+  target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra)
+endif()
+
+if (WIN32)
+target_link_libraries(${PROJECT_NAME} mingw32)
 endif()
 
 target_link_libraries (${PROJECT_NAME} SDL2main SDL2 fmt)

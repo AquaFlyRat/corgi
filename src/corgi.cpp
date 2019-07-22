@@ -1,13 +1,16 @@
-#include <SDL.h>
-#include <fmt/core.h>
+#include "window.hpp"
 
 int main(int, char **)
 {
-  fmt::print("[libfmt Test] -> The answer is {0}.\n", 42);
+    Window window("Corgi!", glm::ivec2(800,600));
+    while (1)
+    {
+        window.ProcessEvents();
+        if (window.ExitRequested())
+            break;
 
-  SDL_version version;
-  SDL_GetVersion(&version);
-  printf("[SDL Test]: Version -> %i.%i.%i\n", version.major, version.minor, version.patch);
+        window.SwapBuffers();
+    }
 
-  return 0;
+    return 0;
 }
