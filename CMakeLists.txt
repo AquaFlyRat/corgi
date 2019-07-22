@@ -11,4 +11,9 @@ set (source
 )
 
 add_executable (${PROJECT_NAME} ${source})
-target_link_libraries (${PROJECT_NAME} SDL2 SDL2main fmt)
+
+if (WIN32)
+target_link_libraries(${PROJECT_NAME} mingw32)
+endif()
+
+target_link_libraries (${PROJECT_NAME} SDL2main SDL2 fmt)
