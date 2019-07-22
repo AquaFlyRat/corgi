@@ -10,6 +10,7 @@ include_directories (third_party/SDL2-2.0.8/include)
 
 set (source
   src/corgi.cpp
+  src/window.cpp
 )
 
 
