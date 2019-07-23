@@ -20,13 +20,13 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_executable (${PROJECT_NAME} ${source})
 
-if(MINGW)
+if(MSVC)
   target_compile_options(${PROJECT_NAME} PRIVATE /W4 /WX)
 else()
-  target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra)
+  target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic-errors)
 endif()
 
-if (WIN32)
+if (MINGW)
 target_link_libraries(${PROJECT_NAME} mingw32)
 endif()
 
