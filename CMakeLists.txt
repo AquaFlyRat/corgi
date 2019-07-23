@@ -1,6 +1,7 @@
 cmake_minimum_required (VERSION 3.0)
 project (corgi)
 
+set (CMAKE_CXX_STANDARD 17)
 add_subdirectory (third_party)
 
 include_directories (third_party/fmt-5.3.0/include)
